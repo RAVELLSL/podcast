@@ -61,26 +61,25 @@
       animation: pulse 2s infinite;
     }
 
+    .intro p {
+      font-size: 1.1em;
+      color: var(--text-color-light);
+      margin-top: 15px;
+      text-align: center;
+      letter-spacing: 1px;
+      animation: fadeInText 2s ease-in-out infinite alternate;
+    }
+
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.7; }
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .intro p {
-  font-size: 1.1em;
-  color: var(--text-color-light);
-  margin-top: 15px;
-  text-align: center;
-  letter-spacing: 1px;
-  animation: fadeInText 2s ease-in-out infinite alternate;
-}
-
-@keyframes fadeInText {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
-}
-
+    @keyframes fadeInText {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
 
     .container {
       width: 100%;
@@ -258,45 +257,40 @@
       <p></p>
     </div>
   </div>
-  
 
- <!-- Conteúdo Principal -->
-<div class="container" id="conteudo">
-  <h1>SintoniaTech</h1>
-  
- <!-- Episódio 2 -->
-  <div class="episode">
-    <div class="episode-header">
-      <img src="https://i.ibb.co/G4XGw360/Chat-GPT-Image-30-de-abr-de-2025-18-18-59.png" alt="Capa do Episódio 2" class="episode-image">
-      <div class="episode-text-content">
-        <div class="episode-number">Episódio #2</div>
-        <h2>Inteligência Artificial Agêntica</h2>
-        <p class="description">
-          A IA Agêntica representa uma nova geração de inteligências artificiais capazes de agir de forma autônoma, pró-ativa e contextual. Elas não apenas respondem, mas tomam decisões, executam tarefas e aprendem continuamente para atingir objetivos definidos.
-        </p>
+  <!-- Conteúdo Principal -->
+  <div class="container" id="conteudo">
+    <h1>SintoniaTech</h1>
+
+       <!-- Episódio 2 -->
+    <div class="episode">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/G4XGw360/Chat-GPT-Image-30-de-abr-de-2025-18-18-59.png" alt="Capa do Episódio 2" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #2</div>
+          <h2>Inteligência Artificial Agêntica</h2>
+          <p class="description">A IA Agêntica representa uma nova geração de inteligências artificiais capazes de agir de forma autônoma, pró-ativa e contextual. Elas não apenas respondem, mas tomam decisões, executam tarefas e aprendem continuamente para atingir objetivos definidos.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/19r05Lk8SCfteB94m2F-5GAQkD7XI45Lr/preview" title="Player do Episódio 2" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    <div class="episode-player">
-      <iframe src="https://drive.google.com/file/d/19r05Lk8SCfteB94m2F-5GAQkD7XI45Lr/preview" title="Player do Episódio 2" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </div>
-</div>
-  
-  <!-- Episódio 1 -->
-  <div class="episode">
-    <div class="episode-header">
-      <img src="https://i.ibb.co/qMvdBJz9/Chat-GPT-Image-30-de-abr-de-2025-11-55-58.png" alt="Capa do Episódio 1" class="episode-image">
-      <div class="episode-text-content">
-        <div class="episode-number">Episódio #1</div>
-        <h2>Quinta Revolução Industrial</h2>
-        <p class="description">
-          A 5ª Revolução Industrial marca a união vibrante entre inteligência humana e tecnologia avançada, promovendo inovação com propósito e empatia. Estamos entrando em uma era onde máquinas e pessoas criam, juntas, um futuro mais sustentável e humano!
-        </p>
+    
+    <!-- Episódio 1 -->
+    <div class="episode">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/qMvdBJz9/Chat-GPT-Image-30-de-abr-de-2025-11-55-58.png" alt="Capa do Episódio 1" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #1</div>
+          <h2>Quinta Revolução Industrial</h2>
+          <p class="description">A 5ª Revolução Industrial marca a união vibrante entre inteligência humana e tecnologia avançada, promovendo inovação com propósito e empatia. Estamos entrando em uma era onde máquinas e pessoas criam, juntas, um futuro mais sustentável e humano!</p>
+        </div>
       </div>
-    </div>
-    <div class="episode-player">
-      <iframe src="https://drive.google.com/file/d/1FG-bT97pTnqvDOFFstYtZ1YFuNxU_yiN/preview" title="Player do Episódio 1" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1FG-bT97pTnqvDOFFstYtZ1YFuNxU_yiN/preview" title="Player do Episódio 1" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div> 
   </div>
 
   <!-- Rodapé com ícones sociais -->
