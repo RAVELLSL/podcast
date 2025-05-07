@@ -17,13 +17,11 @@
       --border-color: #00ff9970;
       --shadow-color: rgba(0, 255, 153, 0.15);
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--background-color);
@@ -34,7 +32,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     .intro {
       position: fixed;
       top: 0;
@@ -48,19 +45,16 @@
       z-index: 1000;
       transition: opacity 1.5s ease, visibility 1.5s ease;
     }
-
     .intro.fade-out {
       opacity: 0;
       visibility: hidden;
     }
-
-    .intro h1 {
+    .intro h1 { /* Título dentro da intro animada */
       font-size: 2.5em;
       color: var(--primary-color);
       text-shadow: 0 0 15px var(--primary-color);
       animation: pulse 2s infinite;
     }
-
     .intro p {
       font-size: 1.1em;
       color: var(--text-color-light);
@@ -69,22 +63,72 @@
       letter-spacing: 1px;
       animation: fadeInText 2s ease-in-out infinite alternate;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.7; }
       100% { transform: scale(1); opacity: 1; }
     }
-
     @keyframes fadeInText {
       from { opacity: 0.4; }
       to { opacity: 1; }
     }
 
+    /* Cabeçalho Principal da Página */
+    .main-page-header {
+      width: 100%;
+      text-align: center;
+      padding: 30px 20px 10px 20px; /* Espaçamento para o título principal */
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .main-page-header h1 {
+      color: var(--primary-color);
+      font-size: 3em; /* Tamanho destacado */
+      text-shadow: 0 0 15px var(--primary-color);
+      margin: 0; /* Remove margem padrão do h1 */
+    }
+
+    /* Estilos para os controles de ordenação e filtro */
+    #controls-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto; /* Margem entre o título e o container de episódios */
+      padding: 20px;
+      background: var(--card-background);
+      border-radius: 12px;
+      box-shadow: 0 0 20px var(--shadow-color);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    #controls-container label {
+      margin-right: 8px;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    #controls-container select {
+      padding: 10px 15px;
+      border-radius: 6px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border: 1px solid var(--primary-color);
+      margin-right: 20px;
+      font-size: 0.95em;
+      cursor: pointer;
+    }
+    #controls-container select:last-child {
+      margin-right: 0;
+    }
+    #controls-container select:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 8px var(--secondary-color);
+    }
+
+    /* Container para os episódios */
     .container {
       width: 100%;
       max-width: 900px;
-      margin: 20px;
+      margin: 0 auto 20px auto; /* Ajustado para centralizar abaixo dos controles */
       background: var(--card-background);
       padding: 30px;
       border-radius: 16px;
@@ -92,14 +136,7 @@
       border: 1px solid var(--border-color);
       animation: fadeIn 1.5s ease-in-out;
     }
-
-    h1 {
-      text-align: center;
-      color: var(--primary-color);
-      margin-bottom: 40px;
-      font-size: 2.8em;
-      text-shadow: 0 0 10px var(--primary-color);
-    }
+    /* O h1 que estava aqui foi movido para .main-page-header */
 
     .episode {
       border: 1px solid var(--border-color);
@@ -111,18 +148,18 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeUp 1s ease-in-out;
     }
-
+    .episode:last-child {
+        margin-bottom: 0; /* Remove margem do último episódio se o botão "ver mais" não estiver visível */
+    }
     .episode:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 20px var(--shadow-color);
     }
-
     .episode-header {
       display: flex;
       gap: 25px;
       align-items: flex-start;
     }
-
     .episode-image {
       width: 150px;
       height: 150px;
@@ -130,38 +167,32 @@
       object-fit: cover;
       border: 1px solid var(--border-color);
     }
-
     .episode-text-content {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-
     .episode-number {
       font-size: 1em;
       font-weight: 700;
       color: var(--secondary-color);
       margin-bottom: 8px;
     }
-
     .episode-text-content h2 {
       margin: 0;
       color: var(--primary-color);
       font-size: 1.5em;
       text-shadow: 0 0 6px var(--primary-color);
     }
-
     .episode-text-content .description {
       margin-top: 10px;
       font-size: 1em;
       color: var(--text-color-light);
     }
-
     .episode-player {
       margin-top: 20px;
     }
-
     .episode-player iframe {
       width: 100%;
       height: 80px;
@@ -169,7 +200,6 @@
       border-radius: 6px;
       background-color: #222;
     }
-
     footer {
       width: 100%;
       margin-top: auto;
@@ -180,334 +210,314 @@
       font-size: 0.9em;
       border-top: 1px solid var(--border-color);
     }
-
     .social-icons {
       margin-top: 15px;
     }
-
     .social-icons a {
       color: var(--primary-color);
       margin: 0 10px;
       font-size: 1.4em;
       transition: transform 0.3s ease, color 0.3s ease;
     }
-
     .social-icons a:hover {
       color: var(--secondary-color);
       transform: scale(1.2);
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
+      .main-page-header h1 {
+        font-size: 2.5em;
+      }
       .episode-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-
       .episode-image {
         width: 120px;
         height: 120px;
       }
-
       .episode-text-content {
         align-items: center;
       }
+      #controls-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      #controls-container select {
+        width: 80%;
+        margin: 0 auto;
+      }
     }
-
     @media (max-width: 480px) {
+      .main-page-header h1 {
+        font-size: 2.2em;
+      }
       .container {
         padding: 20px;
-        margin: 10px;
+        margin: 0 10px 20px 10px; /* Ajuste para telas menores */
       }
-
-      h1 {
-        font-size: 2em;
-      }
-
       .episode-image {
         width: 100px;
         height: 100px;
       }
-
       .episode-text-content h2 {
         font-size: 1.3em;
       }
-
       .episode-text-content .description {
         font-size: 0.95em;
+      }
+       #controls-container select {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Intro Animada -->
   <div class="intro" id="intro">
     <div style="text-align: center;">
       <h1>SintoniaTech</h1>
-      <p></p>
+      <p>Explorando o futuro, hoje.</p>
     </div>
   </div>
 
-  <!-- Conteúdo Principal -->
-  <div class="container" id="conteudo">
+  <header class="main-page-header">
     <h1>SintoniaTech</h1>
+  </header>
 
-<!-- Episódio 22 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/1tv0Tzry/Chat-GPT-Image-7-de-mai-de-2025-00-02-39.png" alt="Capa do Episódio 22" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #22</div>
-      <h2>Padrões de Conexão Sem Fio</h2>
-      <p class="description">Os padrões de conexão sem fio, como Wi-Fi, Bluetooth e 5G, permitem a transmissão de dados entre dispositivos sem a necessidade de cabos físicos. Eles são fundamentais para a mobilidade, conectividade instantânea e integração entre tecnologias no ecossistema digital.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1N0OxYISyuTyP7QoOH9JIWoeqCCyNkWmr/preview" title="Player do Episódio 22" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 21 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/hxb2d1sY/Chat-GPT-Image-6-de-mai-de-2025-23-58-27.png" alt="Capa do Episódio 21" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #21</div>
-      <h2>Economia Circular</h2>
-      <p class="description">A Economia Circular é um modelo sustentável que prioriza o reaproveitamento de recursos, reduzindo o desperdício e prolongando o ciclo de vida dos produtos. Ela substitui o modelo linear tradicional por processos regenerativos e de baixo impacto ambiental.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1QT4VOMbovxGG5lUPQHHKspot4ETvcBOh/preview" title="Player do Episódio 21" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 20 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/VWPV49Dx/Chat-GPT-Image-6-de-mai-de-2025-23-53-13.png" alt="Capa do Episódio 20" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #20</div>
-      <h2>Computação Fotônica</h2>
-      <p class="description">A computação fotônica utiliza fótons em vez de elétrons para processar e transmitir dados, proporcionando maior velocidade e eficiência energética. Essa tecnologia representa um salto disruptivo rumo a sistemas computacionais mais rápidos, leves e escaláveis.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/14cqPp202sSy0LhGNSwa6mfgm8qaiJHt8/preview" title="Player do Episódio 20" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 19 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/vCcpbQkQ/Chat-GPT-Image-6-de-mai-de-2025-14-55-27.png" alt="Capa do Episódio 19" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #19</div>
-      <h2>Telemedicina</h2>
-      <p class="description">A telemedicina utiliza tecnologias digitais para oferecer atendimento médico a distância, conectando pacientes e profissionais de saúde em tempo real. Essa prática amplia o acesso, reduz custos e agiliza diagnósticos e tratamentos, especialmente em regiões remotas.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1rU1rwzsCTBc4CIQcNT5AugWk5RI9LgWt/preview" title="Player do Episódio 19" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 18 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/XxbPs1wM/Chat-GPT-Image-6-de-mai-de-2025-14-51-14.png" alt="Capa do Episódio 18" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #18</div>
-      <h2>A Ciência da Desextinção</h2>
-      <p class="description">A Ciência da Desextinção busca ressuscitar espécies extintas por meio de engenharia genética, clonagem e edição de DNA. Essa abordagem combina biotecnologia avançada com conservação para restaurar ecossistemas e corrigir perdas da biodiversidade.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1Hw74p7e0Fqhk5srmxxHy38gwGBUJs55f/preview" title="Player do Episódio 18" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 17 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/KjCCk5Yb/Chat-GPT-Image-6-de-mai-de-2025-14-46-41.png" alt="Capa do Episódio 17" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #17</div>
-      <h2>Interface Cérebro-Computador</h2>
-      <p class="description">A interface cérebro-computador permite a comunicação direta entre o cérebro humano e dispositivos eletrônicos, sem a necessidade de movimentos físicos. Essa tecnologia abre novas fronteiras para reabilitação, controle de máquinas e expansão das capacidades cognitivas.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1wpG8Ccp_WC_7Mha4KdiUt72tPovBO6vh/preview" title="Player do Episódio 17" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 16 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/BYC3ydd/Chat-GPT-Image-6-de-mai-de-2025-14-15-02.png" alt="Capa do Episódio 16" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #16</div>
-      <h2>Computação Quântica</h2>
-      <p class="description">A computação quântica utiliza os princípios da mecânica quântica, como superposição e entrelaçamento, para realizar cálculos muito além da capacidade dos computadores tradicionais. Ela promete revolucionar áreas como criptografia, simulações moleculares e otimização de sistemas complexos.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1eR54zrMr6MQAae_Iw1ttvv5k15y9WteV/preview" title="Player do Episódio 16" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-<!-- Episódio 15 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/CD01Q4S/Chat-GPT-Image-6-de-mai-de-2025-12-27-30.png" alt="Capa do Episódio 15" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #15</div>
-      <h2>Mídia Sintética</h2>
-      <p class="description">Mídia sintética refere-se a conteúdos gerados ou manipulados por inteligência artificial, como imagens, vídeos, vozes e textos hiper-realistas. Essa tecnologia redefine a criação digital, mas também levanta desafios éticos sobre autenticidade e desinformação.</p>
-    </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1o2wGnBY8aoCxbsqzp7fTjkpUGRt1E2DI/preview" title="Player do Episódio 15" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
+  <div id="controls-container">
+    <label for="sortOptions">Ordenar por:</label>
+    <select id="sortOptions">
+      <option value="default">Padrão (Mais Recente Primeiro)</option>
+      <option value="chronological">Cronológica (Mais Antigo Primeiro)</option>
+      <option value="alphabetical">Alfabética (Título A-Z)</option>
+    </select>
 
-    
-<!-- Episódio 14 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/hRBpwBF4/Chat-GPT-Image-6-de-mai-de-2025-12-21-45.png" alt="Capa do Episódio 14" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #14</div>
-      <h2>Comunicação Holográfica</h2>
-      <p class="description">A comunicação holográfica permite interações em tempo real por meio de projeções tridimensionais, oferecendo presença virtual imersiva e realista. Essa tecnologia revoluciona reuniões, ensino e entretenimento, aproximando pessoas mesmo à distância.</p>
-    </div>
+    <label for="themeFilter">Filtrar por Temática:</label>
+    <select id="themeFilter">
+      <option value="all">Todas as Temáticas</option>
+      </select>
   </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/18_eqw6nMQX9cwBtdCF7xpoV4RR4_K47w/preview" title="Player do Episódio 14" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
 
-    
-<!-- Episódio 13 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/cXk81ksz/Chat-GPT-Image-6-de-mai-de-2025-12-15-22.png" alt="Capa do Episódio 13" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #13</div>
-      <h2>Comida Sintética</h2>
-      <p class="description">Comida sintética é produzida em laboratório a partir de células, proteínas vegetais ou processos biotecnológicos, sem a necessidade de criação animal ou cultivo convencional. Representa uma alternativa sustentável, ética e inovadora para alimentar a população global.</p>
+  <div class="container" id="conteudo">
+    <div class="episode" data-theme="Conectividade">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/1tv0Tzry/Chat-GPT-Image-7-de-mai-de-2025-00-02-39.png" alt="Capa do Episódio 22" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #22</div>
+          <h2>Padrões de Conexão Sem Fio</h2>
+          <p class="description">Os padrões de conexão sem fio, como Wi-Fi, Bluetooth e 5G, permitem a transmissão de dados entre dispositivos sem a necessidade de cabos físicos. Eles são fundamentais para a mobilidade, conectividade instantânea e integração entre tecnologias no ecossistema digital.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1N0OxYISyuTyP7QoOH9JIWoeqCCyNkWmr/preview" title="Player do Episódio 22" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1M2bGjvaiz3soI43XQuYk-N4glkz6Lk_7/preview" title="Player do Episódio 13" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-
-    
-  <!-- Episódio 12 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/SwHbf5tF/internet-quantica.png" alt="Capa do Episódio 12" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #12</div>
-      <h2>Internet Quântica</h2>
-      <p class="description">A internet quântica é uma nova geração de redes que utiliza os princípios da mecânica quântica para transmitir dados com segurança absoluta. Baseada no entrelaçamento quântico, ela promete comunicações instantâneas e invioláveis.</p>
+    <div class="episode" data-theme="Sustentabilidade">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/hxb2d1sY/Chat-GPT-Image-6-de-mai-de-2025-23-58-27.png" alt="Capa do Episódio 21" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #21</div>
+          <h2>Economia Circular</h2>
+          <p class="description">A Economia Circular é um modelo sustentável que prioriza o reaproveitamento de recursos, reduzindo o desperdício e prolongando o ciclo de vida dos produtos. Ela substitui o modelo linear tradicional por processos regenerativos e de baixo impacto ambiental.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1QT4VOMbovxGG5lUPQHHKspot4ETvcBOh/preview" title="Player do Episódio 21" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1WHtEiLzEkVzYMZpEUT6YrcxMWq8hCHS5/preview" title="Player do Episódio 12" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-    <!-- Episódio 11 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/Fq8Thp0R/Chat-GPT-Image-1-de-mai-de-2025-14-21-26.png" alt="Capa do Episódio 11" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #11</div>
-      <h2>Energia por Fusão Nuclear</h2>
-      <p class="description">A energia por fusão nuclear busca replicar na Terra o processo que alimenta o Sol, unindo núcleos atômicos para liberar enorme quantidade de energia limpa. É uma promessa estratégica de geração energética segura, abundante e livre de carbono.</p>
+    <div class="episode" data-theme="Computação Avançada">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/VWPV49Dx/Chat-GPT-Image-6-de-mai-de-2025-23-53-13.png" alt="Capa do Episódio 20" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #20</div>
+          <h2>Computação Fotônica</h2>
+          <p class="description">A computação fotônica utiliza fótons em vez de elétrons para processar e transmitir dados, proporcionando maior velocidade e eficiência energética. Essa tecnologia representa um salto disruptivo rumo a sistemas computacionais mais rápidos, leves e escaláveis.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/14cqPp202sSy0LhGNSwa6mfgm8qaiJHt8/preview" title="Player do Episódio 20" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1PYFqjgv7y8TlxTKaAOlUcEm09v-9QALT/preview" title="Player do Episódio 11" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-
-    <!-- Episódio 10 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/Pzw89HND/Chat-GPT-Image-1-de-mai-de-2025-14-16-59.png" alt="Capa do Episódio 10" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #10</div>
-      <h2>Biotecnologia e Genômica</h2>
-      <p class="description">Biotecnologia e Genômica são áreas que aplicam conhecimentos biológicos e genéticos para desenvolver soluções inovadoras na saúde, agricultura e meio ambiente. Juntas, permitem modificar organismos e mapear o DNA para avanços sustentáveis e personalizados.</p>
+    <div class="episode" data-theme="Saúde e Tecnologia">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/vCcpbQkQ/Chat-GPT-Image-6-de-mai-de-2025-14-55-27.png" alt="Capa do Episódio 19" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #19</div>
+          <h2>Telemedicina</h2>
+          <p class="description">A telemedicina utiliza tecnologias digitais para oferecer atendimento médico a distância, conectando pacientes e profissionais de saúde em tempo real. Essa prática amplia o acesso, reduz custos e agiliza diagnósticos e tratamentos, especialmente em regiões remotas.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1rU1rwzsCTBc4CIQcNT5AugWk5RI9LgWt/preview" title="Player do Episódio 19" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1Rt_gtytrSePP1Oa1Cp_h4KcnJvcr_VjG/preview" title="Player do Episódio 10" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-
-    <!-- Episódio 9 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/dJ7HNSkY/Chat-GPT-Image-1-de-mai-de-2025-14-12-25.png" alt="Capa do Episódio 9" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #9</div>
-      <h2>Metaverso</h2>
-      <p class="description">O Metaverso é um ambiente virtual imersivo e interativo onde pessoas podem socializar, trabalhar, jogar e criar experiências em tempo real. Ele integra realidade virtual, realidade aumentada e blockchain para formar uma nova dimensão digital.</p>
+    <div class="episode" data-theme="Biotecnologia">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/XxbPs1wM/Chat-GPT-Image-6-de-mai-de-2025-14-51-14.png" alt="Capa do Episódio 18" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #18</div>
+          <h2>A Ciência da Desextinção</h2>
+          <p class="description">A Ciência da Desextinção busca ressuscitar espécies extintas por meio de engenharia genética, clonagem e edição de DNA. Essa abordagem combina biotecnologia avançada com conservação para restaurar ecossistemas e corrigir perdas da biodiversidade.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1Hw74p7e0Fqhk5srmxxHy38gwGBUJs55f/preview" title="Player do Episódio 18" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1LrW7m5Tqs-UkTtqiMpFArpMiK3gHrNzX/preview" title="Player do Episódio 9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-    <!-- Episódio 8 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/C5qChmxP/Chat-GPT-Image-1-de-mai-de-2025-14-07-10.png" alt="Capa do Episódio 8" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #8</div>
-      <h2>Blockchain</h2>
-      <p class="description">Blockchain é uma tecnologia de registro distribuído que garante segurança, transparência e imutabilidade nas transações digitais. Cada bloco contém dados criptografados e está conectado ao anterior, formando uma cadeia inviolável.</p>
+    <div class="episode" data-theme="Neurociência e Tecnologia">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/KjCCk5Yb/Chat-GPT-Image-6-de-mai-de-2025-14-46-41.png" alt="Capa do Episódio 17" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #17</div>
+          <h2>Interface Cérebro-Computador</h2>
+          <p class="description">A interface cérebro-computador permite a comunicação direta entre o cérebro humano e dispositivos eletrônicos, sem a necessidade de movimentos físicos. Essa tecnologia abre novas fronteiras para reabilitação, controle de máquinas e expansão das capacidades cognitivas.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1wpG8Ccp_WC_7Mha4KdiUt72tPovBO6vh/preview" title="Player do Episódio 17" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1g2PYXxrZ5yhl01jkFmwaRolvGFQLrR3i/preview" title="Player do Episódio 8" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-    
-    <!-- Episódio 7 -->
-<div class="episode">
-  <div class="episode-header">
-    <img src="https://i.ibb.co/XfhtRZ9V/Chat-GPT-Image-1-de-mai-de-2025-14-00-31.png" alt="Capa do Episódio 7" class="episode-image">
-    <div class="episode-text-content">
-      <div class="episode-number">Episódio #7</div>
-      <h2>Web3</h2>
-      <p class="description">O ChatGPT disse:<br>
-      A Web3 representa a nova era da internet descentralizada, baseada em blockchain e voltada para a autonomia do usuário. Ela promove a propriedade digital, a transparência e a eliminação de intermediários tradicionais.</p>
+    <div class="episode" data-theme="Computação Avançada">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/BYC3ydd/Chat-GPT-Image-6-de-mai-de-2025-14-15-02.png" alt="Capa do Episódio 16" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #16</div>
+          <h2>Computação Quântica</h2>
+          <p class="description">A computação quântica utiliza os princípios da mecânica quântica, como superposição e entrelaçamento, para realizar cálculos muito além da capacidade dos computadores tradicionais. Ela promete revolucionar áreas como criptografia, simulações moleculares e otimização de sistemas complexos.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1eR54zrMr6MQAae_Iw1ttvv5k15y9WteV/preview" title="Player do Episódio 16" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
-  <div class="episode-player">
-    <iframe src="https://drive.google.com/file/d/1cx_iIqm_xGqx7xa7pMXqiYe_oGOQkJOB/preview" title="Player do Episódio 7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div> 
-    
-    <!-- Episódio 6 -->
-    <div class="episode">
+    <div class="episode" data-theme="Inteligência Artificial">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/CD01Q4S/Chat-GPT-Image-6-de-mai-de-2025-12-27-30.png" alt="Capa do Episódio 15" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #15</div>
+          <h2>Mídia Sintética</h2>
+          <p class="description">Mídia sintética refere-se a conteúdos gerados ou manipulados por inteligência artificial, como imagens, vídeos, vozes e textos hiper-realistas. Essa tecnologia redefine a criação digital, mas também levanta desafios éticos sobre autenticidade e desinformação.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1o2wGnBY8aoCxbsqzp7fTjkpUGRt1E2DI/preview" title="Player do Episódio 15" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Comunicação e Mídia">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/hRBpwBF4/Chat-GPT-Image-6-de-mai-de-2025-12-21-45.png" alt="Capa do Episódio 14" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #14</div>
+          <h2>Comunicação Holográfica</h2>
+          <p class="description">A comunicação holográfica permite interações em tempo real por meio de projeções tridimensionais, oferecendo presença virtual imersiva e realista. Essa tecnologia revoluciona reuniões, ensino e entretenimento, aproximando pessoas mesmo à distância.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/18_eqw6nMQX9cwBtdCF7xpoV4RR4_K47w/preview" title="Player do Episódio 14" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Inovação Alimentar">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/cXk81ksz/Chat-GPT-Image-6-de-mai-de-2025-12-15-22.png" alt="Capa do Episódio 13" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #13</div>
+          <h2>Comida Sintética</h2>
+          <p class="description">Comida sintética é produzida em laboratório a partir de células, proteínas vegetais ou processos biotecnológicos, sem a necessidade de criação animal ou cultivo convencional. Representa uma alternativa sustentável, ética e inovadora para alimentar a população global.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1M2bGjvaiz3soI43XQuYk-N4glkz6Lk_7/preview" title="Player do Episódio 13" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+      <div class="episode" data-theme="Computação Avançada">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/SwHbf5tF/internet-quantica.png" alt="Capa do Episódio 12" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #12</div>
+          <h2>Internet Quântica</h2>
+          <p class="description">A internet quântica é uma nova geração de redes que utiliza os princípios da mecânica quântica para transmitir dados com segurança absoluta. Baseada no entrelaçamento quântico, ela promete comunicações instantâneas e invioláveis.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1WHtEiLzEkVzYMZpEUT6YrcxMWq8hCHS5/preview" title="Player do Episódio 12" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Energia">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/Fq8Thp0R/Chat-GPT-Image-1-de-mai-de-2025-14-21-26.png" alt="Capa do Episódio 11" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #11</div>
+          <h2>Energia por Fusão Nuclear</h2>
+          <p class="description">A energia por fusão nuclear busca replicar na Terra o processo que alimenta o Sol, unindo núcleos atômicos para liberar enorme quantidade de energia limpa. É uma promessa estratégica de geração energética segura, abundante e livre de carbono.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1PYFqjgv7y8TlxTKaAOlUcEm09v-9QALT/preview" title="Player do Episódio 11" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Biotecnologia">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/Pzw89HND/Chat-GPT-Image-1-de-mai-de-2025-14-16-59.png" alt="Capa do Episódio 10" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #10</div>
+          <h2>Biotecnologia e Genômica</h2>
+          <p class="description">Biotecnologia e Genômica são áreas que aplicam conhecimentos biológicos e genéticos para desenvolver soluções inovadoras na saúde, agricultura e meio ambiente. Juntas, permitem modificar organismos e mapear o DNA para avanços sustentáveis e personalizados.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1Rt_gtytrSePP1Oa1Cp_h4KcnJvcr_VjG/preview" title="Player do Episódio 10" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Realidade Virtual e Metaverso">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/dJ7HNSkY/Chat-GPT-Image-1-de-mai-de-2025-14-12-25.png" alt="Capa do Episódio 9" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #9</div>
+          <h2>Metaverso</h2>
+          <p class="description">O Metaverso é um ambiente virtual imersivo e interativo onde pessoas podem socializar, trabalhar, jogar e criar experiências em tempo real. Ele integra realidade virtual, realidade aumentada e blockchain para formar uma nova dimensão digital.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1LrW7m5Tqs-UkTtqiMpFArpMiK3gHrNzX/preview" title="Player do Episódio 9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Web3 e Blockchain">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/C5qChmxP/Chat-GPT-Image-1-de-mai-de-2025-14-07-10.png" alt="Capa do Episódio 8" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #8</div>
+          <h2>Blockchain</h2>
+          <p class="description">Blockchain é uma tecnologia de registro distribuído que garante segurança, transparência e imutabilidade nas transações digitais. Cada bloco contém dados criptografados e está conectado ao anterior, formando uma cadeia inviolável.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1g2PYXxrZ5yhl01jkFmwaRolvGFQLrR3i/preview" title="Player do Episódio 8" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Web3 e Blockchain">
+      <div class="episode-header">
+        <img src="https://i.ibb.co/XfhtRZ9V/Chat-GPT-Image-1-de-mai-de-2025-14-00-31.png" alt="Capa do Episódio 7" class="episode-image">
+        <div class="episode-text-content">
+          <div class="episode-number">Episódio #7</div>
+          <h2>Web3</h2>
+          <p class="description">A Web3 representa a nova era da internet descentralizada, baseada em blockchain e voltada para a autonomia do usuário. Ela promove a propriedade digital, a transparência e a eliminação de intermediários tradicionais.</p>
+        </div>
+      </div>
+      <div class="episode-player">
+        <iframe src="https://drive.google.com/file/d/1cx_iIqm_xGqx7xa7pMXqiYe_oGOQkJOB/preview" title="Player do Episódio 7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="episode" data-theme="Materiais Avançados">
       <div class="episode-header">
         <img src="https://i.ibb.co/wZHs71jk/Chat-GPT-Image-1-de-mai-de-2025-13-48-09.png" alt="Capa do Episódio 6" class="episode-image">
         <div class="episode-text-content">
@@ -520,9 +530,7 @@
         <iframe src="https://drive.google.com/file/d/1-alKZpp4Bg7MD0qAIL1LDxKgBlkmG6Ov/preview" title="Player do Episódio 6" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    
-    <!-- Episódio 5 -->
-    <div class="episode">
+    <div class="episode" data-theme="Manufatura Aditiva">
       <div class="episode-header">
         <img src="https://i.ibb.co/CKSZ7k36/Chat-GPT-Image-1-de-mai-de-2025-06-59-26.png" alt="Capa do Episódio 5" class="episode-image">
         <div class="episode-text-content">
@@ -535,9 +543,7 @@
         <iframe src="https://drive.google.com/file/d/1Remlv15L9WtA4t6_G3xZMo9-Ew9NLy-O/preview" title="Player do Episódio 5" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <!-- Episódio 4 -->
-    <div class="episode">
+    <div class="episode" data-theme="Inteligência Artificial">
       <div class="episode-header">
         <img src="https://i.ibb.co/fVSSmPCX/Chat-GPT-Image-1-de-mai-de-2025-06-50-52.png" alt="Capa do Episódio 4" class="episode-image">
         <div class="episode-text-content">
@@ -550,9 +556,7 @@
         <iframe src="https://drive.google.com/file/d/1PXMLUgsNTPDcE-4wt6AayJ-9TlYSpJL5/preview" title="Player do Episódio 4" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <!-- Episódio 3 -->
-    <div class="episode">
+    <div class="episode" data-theme="Conectividade">
       <div class="episode-header">
         <img src="https://i.ibb.co/r2JwCfhf/Chat-GPT-Image-1-de-mai-de-2025-06-41-07.png" alt="Capa do Episódio 3" class="episode-image">
         <div class="episode-text-content">
@@ -565,9 +569,7 @@
         <iframe src="https://drive.google.com/file/d/1RWCPlLJoSLnEh4l86cO8gNAUJ_NTJPzs/preview" title="Player do Episódio 3" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <!-- Episódio 2 -->
-    <div class="episode">
+    <div class="episode" data-theme="Inteligência Artificial">
       <div class="episode-header">
         <img src="https://i.ibb.co/G4XGw360/Chat-GPT-Image-30-de-abr-de-2025-18-18-59.png" alt="Capa do Episódio 2" class="episode-image">
         <div class="episode-text-content">
@@ -580,9 +582,7 @@
         <iframe src="https://drive.google.com/file/d/19r05Lk8SCfteB94m2F-5GAQkD7XI45Lr/preview" title="Player do Episódio 2" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <!-- Episódio 1 -->
-    <div class="episode">
+    <div class="episode" data-theme="Futuro da Indústria">
       <div class="episode-header">
         <img src="https://i.ibb.co/qMvdBJz9/Chat-GPT-Image-30-de-abr-de-2025-11-55-58.png" alt="Capa do Episódio 1" class="episode-image">
         <div class="episode-text-content">
@@ -596,49 +596,199 @@
       </div>
     </div>
 
-    <!-- Botão Ver Mais -->
-    <div style="text-align: center; margin: 30px 0;">
-      <button id="verMaisBtn" style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; transition: 0.3s;">
+    <div style="text-align: center; margin: 30px 0 0 0;"> <button id="verMaisBtn" style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; transition: 0.3s;">
         Ver mais
       </button>
     </div>
   </div>
 
-  <!-- Rodapé com ícones sociais -->
   <footer>
-    &copy; 2025<br>
+    &copy; 2025 SintoniaTech<br>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    window.addEventListener("load", () => {
-      const intro = document.getElementById("intro");
-      setTimeout(() => {
-        intro.classList.add("fade-out");
-      }, 2000);
-    });
-
-    // Exibir apenas os 3 primeiros episódios, e revelar mais com clique
     document.addEventListener("DOMContentLoaded", function () {
-      const episodes = document.querySelectorAll(".episode");
-      const verMaisBtn = document.getElementById("verMaisBtn");
-      const incremento = 3;
-      let visiveis = 3;
-
-      episodes.forEach((ep, index) => {
-        if (index >= visiveis) ep.style.display = "none";
-      });
-
-      verMaisBtn.addEventListener("click", () => {
-        let exibidos = 0;
-        for (let i = visiveis; i < episodes.length && exibidos < incremento; i++, exibidos++) {
-          episodes[i].style.display = "block";
-        }
-        visiveis += exibidos;
-        if (visiveis >= episodes.length) {
-          verMaisBtn.style.display = "none";
+      // --- Intro Animation ---
+      window.addEventListener("load", () => {
+        const intro = document.getElementById("intro");
+        if (intro) {
+          setTimeout(() => {
+            intro.classList.add("fade-out");
+          }, 2000); // 2s delay
         }
       });
+
+      // --- DOM Elements ---
+      const controlsContainer = document.getElementById('controls-container');
+      const episodesListContainer = document.getElementById('conteudo'); // Este é o <div class="container" id="conteudo">
+
+      if (!episodesListContainer || !controlsContainer) {
+        console.error("Contêineres essenciais para episódios ou controles estão faltando.");
+        return;
+      }
+      
+      // O H1 principal agora está fora do episodesListContainer, então não precisamos mais cloná-lo aqui.
+
+      const allEpisodeNodesOriginal = Array.from(episodesListContainer.querySelectorAll(".episode"));
+      const verMaisDivOriginal = episodesListContainer.querySelector('div[style*="text-align: center; margin: 30px 0"]');
+      
+      let verMaisBtnOriginal = null;
+      if (verMaisDivOriginal) {
+          verMaisBtnOriginal = verMaisDivOriginal.querySelector('#verMaisBtn');
+      }
+      
+      const verMaisDivClone = verMaisDivOriginal ? verMaisDivOriginal.cloneNode(true) : null;
+
+      const sortOptions = controlsContainer.querySelector("#sortOptions");
+      const themeFilter = controlsContainer.querySelector("#themeFilter");
+
+      if (!sortOptions || !themeFilter) {
+        console.error("Elementos select de ordenação ou filtro estão faltando.");
+        return;
+      }
+
+      const originalEpisodeData = allEpisodeNodesOriginal.map(epNode => {
+        const numberText = epNode.querySelector(".episode-number")?.textContent || "";
+        const numberMatch = numberText.match(/#(\d+)/);
+        return {
+          element: epNode.cloneNode(true),
+          number: numberMatch ? parseInt(numberMatch[1]) : Infinity,
+          title: epNode.querySelector(".episode-text-content h2")?.textContent.toLowerCase() || "",
+          theme: epNode.dataset.theme || ""
+        };
+      });
+
+      // --- Populate Themes ---
+      const themes = new Set();
+      originalEpisodeData.forEach(epData => {
+        if (epData.theme) themes.add(epData.theme);
+      });
+      Array.from(themes).sort().forEach(theme => {
+        const option = document.createElement('option');
+        option.value = theme;
+        option.textContent = theme;
+        themeFilter.appendChild(option);
+      });
+
+      // --- "Ver mais" Logic ---
+      const paginationIncrement = 3;
+      let countVisibleForPagination = paginationIncrement;
+
+      function applyView(episodesDataToDisplay, enablePagination = false) {
+        episodesListContainer.innerHTML = ''; // Limpa apenas o conteúdo do contêiner de episódios (mantém o H1 global)
+        
+        // O H1 global já está no HTML, não precisa ser adicionado aqui.
+
+        const fragment = document.createDocumentFragment();
+        episodesDataToDisplay.forEach((epData, index) => {
+          const episodeElement = epData.element.cloneNode(true);
+          if (enablePagination && index >= countVisibleForPagination) {
+            episodeElement.style.display = "none";
+          } else {
+            episodeElement.style.display = "block";
+          }
+          fragment.appendChild(episodeElement);
+        });
+        episodesListContainer.appendChild(fragment);
+
+        if (verMaisDivClone) {
+          const newVerMaisDiv = verMaisDivClone.cloneNode(true);
+          const newVerMaisBtn = newVerMaisDiv.querySelector('#verMaisBtn');
+          episodesListContainer.appendChild(newVerMaisDiv); // Adiciona o botão "Ver Mais" ao final do container de episódios
+
+          if (newVerMaisBtn) {
+            if (enablePagination && countVisibleForPagination < episodesDataToDisplay.length) {
+              newVerMaisBtn.style.display = "inline-block";
+              newVerMaisBtn.onclick = simplifiedHandleVerMaisClick;
+            } else {
+              newVerMaisBtn.style.display = "none";
+            }
+          }
+        }
+      }
+
+      function simplifiedHandleVerMaisClick() {
+        const episodeElementsInDOM = Array.from(episodesListContainer.querySelectorAll('.episode'));
+        let newlyShown = 0;
+        let firstHiddenIndex = -1;
+
+        for(let i=0; i < episodeElementsInDOM.length; i++) {
+            if(episodeElementsInDOM[i].style.display === 'none') {
+                firstHiddenIndex = i;
+                break;
+            }
+        }
+
+        if(firstHiddenIndex !== -1) {
+            for (let i = firstHiddenIndex; i < episodeElementsInDOM.length && newlyShown < paginationIncrement; i++) {
+                episodeElementsInDOM[i].style.display = "block";
+                newlyShown++;
+            }
+        }
+        
+        countVisibleForPagination = episodeElementsInDOM.filter(ep => ep.style.display !== 'none').length;
+
+        const verMaisButtonInstance = episodesListContainer.querySelector('#verMaisBtn');
+        if (verMaisButtonInstance) {
+            const stillHidden = episodeElementsInDOM.some(ep => ep.style.display === 'none');
+            if (!stillHidden) {
+                verMaisButtonInstance.style.display = 'none';
+            } else {
+                verMaisButtonInstance.style.display = 'inline-block';
+            }
+        }
+      }
+      
+      function updateDisplay() {
+        const sortBy = sortOptions.value;
+        const selectedTheme = themeFilter.value;
+
+        let processedEpisodes = [...originalEpisodeData]; 
+
+        // 1. Filter by Theme
+        if (selectedTheme !== "all") {
+          processedEpisodes = processedEpisodes.filter(epData => epData.theme === selectedTheme);
+        }
+
+        // 2. Sort
+        if (sortBy === "chronological") {
+          processedEpisodes.sort((a, b) => a.number - b.number);
+        } else if (sortBy === "alphabetical") {
+          processedEpisodes.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortBy === "default") {
+            if (selectedTheme !== "all") {
+                processedEpisodes = originalEpisodeData
+                                    .filter(epData => epData.theme === selectedTheme)
+                                    .sort((a,b) => b.number - a.number); 
+            } else {
+                processedEpisodes = [...originalEpisodeData].sort((a,b) => b.number - a.number); 
+            }
+        }
+
+        if (sortBy === "default" && selectedTheme === "all") {
+          countVisibleForPagination = paginationIncrement; 
+          applyView(processedEpisodes, true); 
+        } else {
+          countVisibleForPagination = processedEpisodes.length; 
+          applyView(processedEpisodes, false); 
+        }
+      }
+
+      // Initial Display
+      if (verMaisBtnOriginal) { 
+        updateDisplay(); 
+      } else { 
+        applyView(originalEpisodeData.sort((a,b) => b.number - a.number), false);
+      }
+      
+      sortOptions.addEventListener("change", updateDisplay);
+      themeFilter.addEventListener("change", updateDisplay);
     });
   </script>
 </body>
