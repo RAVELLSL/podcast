@@ -49,7 +49,7 @@
       opacity: 0;
       visibility: hidden;
     }
-    .intro h1 { /* Título dentro da intro animada */
+    .intro h1 {
       font-size: 2.5em;
       color: var(--primary-color);
       text-shadow: 0 0 15px var(--primary-color);
@@ -73,50 +73,57 @@
       to { opacity: 1; }
     }
 
-    /* Cabeçalho Principal da Página */
     .main-page-header {
       width: 100%;
       text-align: center;
-      padding: 30px 20px 10px 20px; /* Espaçamento para o título principal */
+      padding: 30px 20px 10px 20px;
       animation: fadeIn 1.5s ease-in-out;
     }
     .main-page-header h1 {
       color: var(--primary-color);
-      font-size: 3em; /* Tamanho destacado */
+      font-size: 3em;
       text-shadow: 0 0 15px var(--primary-color);
-      margin: 0; /* Remove margem padrão do h1 */
+      margin: 0;
     }
 
-    /* Estilos para os controles de ordenação e filtro */
+    /* Controles de Ordenação e Filtragem */
     #controls-container {
       width: 100%;
       max-width: 900px;
-      margin: 20px auto; /* Margem entre o título e o container de episódios */
+      margin: 20px auto;
       padding: 20px;
       background: var(--card-background);
       border-radius: 12px;
       box-shadow: 0 0 20px var(--shadow-color);
       border: 1px solid var(--border-color);
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px; /* Espaço entre os grupos de controle */
       animation: fadeIn 1.5s ease-in-out;
     }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Espaço entre label e select no modo linha */
+    }
+
     #controls-container label {
-      margin-right: 8px;
       color: var(--primary-color);
       font-weight: 700;
+      font-size: 0.95em;
     }
+
     #controls-container select {
       padding: 10px 15px;
       border-radius: 6px;
       background-color: var(--background-color);
       color: var(--text-color);
       border: 1px solid var(--primary-color);
-      margin-right: 20px;
       font-size: 0.95em;
       cursor: pointer;
-    }
-    #controls-container select:last-child {
-      margin-right: 0;
+      min-width: 180px; /* Largura mínima para os selects */
     }
     #controls-container select:focus {
       outline: none;
@@ -124,11 +131,10 @@
       box-shadow: 0 0 8px var(--secondary-color);
     }
 
-    /* Container para os episódios */
     .container {
       width: 100%;
       max-width: 900px;
-      margin: 0 auto 20px auto; /* Ajustado para centralizar abaixo dos controles */
+      margin: 0 auto 20px auto;
       background: var(--card-background);
       padding: 30px;
       border-radius: 16px;
@@ -136,20 +142,16 @@
       border: 1px solid var(--border-color);
       animation: fadeIn 1.5s ease-in-out;
     }
-    /* O h1 que estava aqui foi movido para .main-page-header */
 
     .episode {
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 25px;
-      margin-bottom: 25px;
+      margin-bottom: 25px; /* Espaçamento consistente entre episódios */
       background-color: var(--card-background);
       box-shadow: 0 2px 8px var(--shadow-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeUp 1s ease-in-out;
-    }
-    .episode:last-child {
-        margin-bottom: 0; /* Remove margem do último episódio se o botão "ver mais" não estiver visível */
     }
     .episode:hover {
       transform: translateY(-5px);
@@ -189,13 +191,14 @@
       margin-top: 10px;
       font-size: 1em;
       color: var(--text-color-light);
+      line-height: 1.5; /* Melhora a legibilidade */
     }
     .episode-player {
       margin-top: 20px;
     }
     .episode-player iframe {
       width: 100%;
-      height: 80px;
+      height: 80px; /* Altura base */
       border: none;
       border-radius: 6px;
       background-color: #222;
@@ -232,10 +235,29 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
+    /* --- Media Queries para Responsividade --- */
+    @media (max-width: 768px) { /* Tablets e smartphones maiores em modo paisagem */
       .main-page-header h1 {
         font-size: 2.5em;
       }
+
+      #controls-container {
+        flex-direction: column; /* Empilha os grupos de controle */
+        align-items: center;   /* Centraliza os grupos de controle */
+        gap: 20px; /* Espaço entre os grupos empilhados */
+      }
+      .control-group {
+        flex-direction: column; /* Empilha label e select dentro do grupo */
+        align-items: center;   /* Centraliza label e select no grupo */
+        gap: 8px; /* Espaço entre label e select */
+        width: 100%; /* Faz o grupo ocupar a largura para centralizar conteúdo */
+        text-align: center; /* Centraliza o texto da label */
+      }
+      #controls-container select {
+        width: 80%;
+        min-width: unset; /* Remove largura mínima para permitir encolhimento */
+      }
+
       .episode-header {
         flex-direction: column;
         align-items: center;
@@ -248,23 +270,35 @@
       .episode-text-content {
         align-items: center;
       }
-      #controls-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      #controls-container select {
-        width: 80%;
-        margin: 0 auto;
+      .episode-player iframe {
+        height: 100px; /* Aumenta altura do iframe para melhor visualização do player */
       }
     }
-    @media (max-width: 480px) {
+
+    @media (max-width: 480px) { /* Smartphones menores */
       .main-page-header h1 {
         font-size: 2.2em;
       }
+      #controls-container {
+        padding: 15px;
+      }
+      #controls-container select {
+        width: 90%;
+        padding: 12px 15px; /* Aumenta um pouco o padding para facilitar o toque */
+      }
+      .control-group {
+          gap: 10px; /* Aumenta um pouco o espaço entre label e select */
+      }
+      #controls-container label {
+        font-size: 1em; /* Garante que a label seja bem legível */
+      }
+
       .container {
         padding: 20px;
-        margin: 0 10px 20px 10px; /* Ajuste para telas menores */
+        margin: 0 10px 20px 10px;
+      }
+       .episode {
+        padding: 20px;
       }
       .episode-image {
         width: 100px;
@@ -274,10 +308,10 @@
         font-size: 1.3em;
       }
       .episode-text-content .description {
-        font-size: 0.95em;
+        font-size: 0.9em;
       }
-       #controls-container select {
-        width: 90%;
+      .episode-player iframe {
+        height: 110px; /* Pode ajustar mais se necessário para o conteúdo do player */
       }
     }
   </style>
@@ -295,17 +329,20 @@
   </header>
 
   <div id="controls-container">
-    <label for="sortOptions">Ordenar por:</label>
-    <select id="sortOptions">
-      <option value="default">Padrão (Mais Recente Primeiro)</option>
-      <option value="chronological">Cronológica (Mais Antigo Primeiro)</option>
-      <option value="alphabetical">Alfabética (Título A-Z)</option>
-    </select>
-
-    <label for="themeFilter">Filtrar por Temática:</label>
-    <select id="themeFilter">
-      <option value="all">Todas as Temáticas</option>
+    <div class="control-group">
+      <label for="sortOptions">Ordenar por:</label>
+      <select id="sortOptions">
+        <option value="default">Padrão (Mais Recente Primeiro)</option>
+        <option value="chronological">Cronológica (Mais Antigo Primeiro)</option>
+        <option value="alphabetical">Alfabética (Título A-Z)</option>
       </select>
+    </div>
+    <div class="control-group">
+      <label for="themeFilter">Filtrar por Temática:</label>
+      <select id="themeFilter">
+        <option value="all">Todas as Temáticas</option>
+        </select>
+    </div>
   </div>
 
   <div class="container" id="conteudo">
@@ -596,7 +633,8 @@
       </div>
     </div>
 
-    <div style="text-align: center; margin: 30px 0 0 0;"> <button id="verMaisBtn" style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; transition: 0.3s;">
+    <div style="text-align: center; margin: 30px 0 0 0;">
+      <button id="verMaisBtn" style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; transition: 0.3s;">
         Ver mais
       </button>
     </div>
@@ -614,27 +652,23 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // --- Intro Animation ---
       window.addEventListener("load", () => {
         const intro = document.getElementById("intro");
         if (intro) {
           setTimeout(() => {
             intro.classList.add("fade-out");
-          }, 2000); // 2s delay
+          }, 2000);
         }
       });
 
-      // --- DOM Elements ---
       const controlsContainer = document.getElementById('controls-container');
-      const episodesListContainer = document.getElementById('conteudo'); // Este é o <div class="container" id="conteudo">
+      const episodesListContainer = document.getElementById('conteudo');
 
       if (!episodesListContainer || !controlsContainer) {
         console.error("Contêineres essenciais para episódios ou controles estão faltando.");
         return;
       }
       
-      // O H1 principal agora está fora do episodesListContainer, então não precisamos mais cloná-lo aqui.
-
       const allEpisodeNodesOriginal = Array.from(episodesListContainer.querySelectorAll(".episode"));
       const verMaisDivOriginal = episodesListContainer.querySelector('div[style*="text-align: center; margin: 30px 0"]');
       
@@ -664,7 +698,6 @@
         };
       });
 
-      // --- Populate Themes ---
       const themes = new Set();
       originalEpisodeData.forEach(epData => {
         if (epData.theme) themes.add(epData.theme);
@@ -676,15 +709,12 @@
         themeFilter.appendChild(option);
       });
 
-      // --- "Ver mais" Logic ---
       const paginationIncrement = 3;
       let countVisibleForPagination = paginationIncrement;
 
       function applyView(episodesDataToDisplay, enablePagination = false) {
-        episodesListContainer.innerHTML = ''; // Limpa apenas o conteúdo do contêiner de episódios (mantém o H1 global)
+        episodesListContainer.innerHTML = ''; 
         
-        // O H1 global já está no HTML, não precisa ser adicionado aqui.
-
         const fragment = document.createDocumentFragment();
         episodesDataToDisplay.forEach((epData, index) => {
           const episodeElement = epData.element.cloneNode(true);
@@ -700,7 +730,7 @@
         if (verMaisDivClone) {
           const newVerMaisDiv = verMaisDivClone.cloneNode(true);
           const newVerMaisBtn = newVerMaisDiv.querySelector('#verMaisBtn');
-          episodesListContainer.appendChild(newVerMaisDiv); // Adiciona o botão "Ver Mais" ao final do container de episódios
+          episodesListContainer.appendChild(newVerMaisDiv); 
 
           if (newVerMaisBtn) {
             if (enablePagination && countVisibleForPagination < episodesDataToDisplay.length) {
@@ -751,12 +781,10 @@
 
         let processedEpisodes = [...originalEpisodeData]; 
 
-        // 1. Filter by Theme
         if (selectedTheme !== "all") {
           processedEpisodes = processedEpisodes.filter(epData => epData.theme === selectedTheme);
         }
 
-        // 2. Sort
         if (sortBy === "chronological") {
           processedEpisodes.sort((a, b) => a.number - b.number);
         } else if (sortBy === "alphabetical") {
@@ -780,7 +808,6 @@
         }
       }
 
-      // Initial Display
       if (verMaisBtnOriginal) { 
         updateDisplay(); 
       } else { 
