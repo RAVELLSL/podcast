@@ -17,13 +17,11 @@
       --border-color: #00ff9970;
       --shadow-color: rgba(0, 255, 153, 0.15);
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--background-color);
@@ -34,11 +32,9 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     body.modal-open {
       overflow: hidden; /* Impede o scroll do body quando o modal está aberto */
     }
-
     .intro {
       position: fixed;
       top: 0;
@@ -52,19 +48,16 @@
       z-index: 1000;
       transition: opacity 1.5s ease, visibility 1.5s ease;
     }
-
     .intro.fade-out {
       opacity: 0;
       visibility: hidden;
     }
-
     .intro h1 {
       font-size: 2.5em;
       color: var(--primary-color);
       text-shadow: 0 0 15px var(--primary-color);
       animation: pulse 2s infinite;
     }
-
     .intro p {
       font-size: 1.1em;
       color: var(--text-color-light);
@@ -73,48 +66,40 @@
       letter-spacing: 1px;
       animation: fadeInText 2s ease-in-out infinite alternate;
     }
-
     @keyframes pulse {
       0% {
         transform: scale(1);
         opacity: 1;
       }
-
       50% {
         transform: scale(1.05);
         opacity: 0.7;
       }
-
       100% {
         transform: scale(1);
         opacity: 1;
       }
     }
-
     @keyframes fadeInText {
       from {
         opacity: 0.4;
       }
-
       to {
         opacity: 1;
       }
     }
-
     .main-page-header {
       width: 100%;
       text-align: center;
       padding: 30px 20px 10px 20px;
       animation: fadeIn 1.5s ease-in-out;
     }
-
     .main-page-header h1 {
       color: var(--primary-color);
       font-size: 3em;
       text-shadow: 0 0 15px var(--primary-color);
       margin: 0;
     }
-
     #controls-container {
       width: 100%;
       max-width: 900px;
@@ -126,23 +111,20 @@
       border: 1px solid var(--border-color);
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
+      justify-content: center; 
+      gap: 25px; 
       animation: fadeIn 1.5s ease-in-out;
     }
-
     .control-group {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-
     #controls-container label {
       color: var(--primary-color);
       font-weight: 700;
       font-size: 0.95em;
     }
-
     #controls-container select {
       padding: 10px 15px;
       border-radius: 6px;
@@ -153,13 +135,11 @@
       cursor: pointer;
       min-width: 180px;
     }
-
     #controls-container select:focus {
       outline: none;
       border-color: var(--secondary-color);
       box-shadow: 0 0 8px var(--secondary-color);
     }
-
     .container {
       width: 100%;
       max-width: 900px;
@@ -171,7 +151,6 @@
       border: 1px solid var(--border-color);
       animation: fadeIn 1.5s ease-in-out;
     }
-
     .episode {
       border: 1px solid var(--border-color);
       border-radius: 12px;
@@ -182,18 +161,15 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeUp 1s ease-in-out;
     }
-
     .episode:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 20px var(--shadow-color);
     }
-
     .episode-header {
       display: flex;
       gap: 25px;
       align-items: flex-start;
     }
-
     .episode-image {
       width: 150px;
       height: 150px;
@@ -206,39 +182,33 @@
     .episode-image:hover {
       transform: scale(1.05); /* Pequeno efeito ao passar o mouse */
     }
-
     .episode-text-content {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-
     .episode-number {
       font-size: 1em;
       font-weight: 700;
       color: var(--secondary-color);
       margin-bottom: 8px;
     }
-
     .episode-text-content h2 {
       margin: 0;
       color: var(--primary-color);
       font-size: 1.5em;
       text-shadow: 0 0 6px var(--primary-color);
     }
-
     .episode-text-content .description {
       margin-top: 10px;
       font-size: 1em;
       color: var(--text-color-light);
       line-height: 1.5;
     }
-
     .episode-player {
       margin-top: 20px;
     }
-
     .episode-player iframe {
       width: 100%;
       height: 80px;
@@ -248,7 +218,6 @@
       background-color: #222;
       display: block;
     }
-
     footer {
       width: 100%;
       margin-top: auto;
@@ -259,28 +228,24 @@
       font-size: 0.9em;
       border-top: 1px solid var(--border-color);
     }
-
     .social-icons {
       margin-top: 15px;
     }
-
     .social-icons a {
       color: var(--primary-color);
       margin: 0 10px;
       font-size: 1.4em;
       transition: transform 0.3s ease, color 0.3s ease;
     }
-
     .social-icons a:hover {
       color: var(--secondary-color);
       transform: scale(1.2);
     }
-
     /* Estilos para o Modal da Imagem */
     .image-modal {
       display: none; /* Escondido por padrão. Esta é a única declaração de display aqui. */
       position: fixed;
-      z-index: 1001;  
+      z-index: 1001;
       left: 0;
       top: 0;
       width: 100%;
@@ -289,18 +254,16 @@
       background-color: rgba(0, 0, 0, 0.9);
       align-items: center; /* Estas propriedades de alinhamento terão efeito */
       justify-content: center; /* quando o display for 'flex' (via JS) */
-      padding: 20px;  
+      padding: 20px;
     }
-
     .image-modal-content {
       margin: auto;
       display: block;
       max-width: 85%;
-      max-height: 85vh;  
+      max-height: 85vh;
       border-radius: 5px;
       border: 3px solid var(--primary-color);
     }
-
     .close-modal-btn {
       position: absolute;
       top: 20px;
@@ -311,136 +274,109 @@
       transition: 0.3s;
       cursor: pointer;
     }
-
     .close-modal-btn:hover,
     .close-modal-btn:focus {
       color: var(--secondary-color);
       text-decoration: none;
     }
 
-
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(-20px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     @keyframes fadeUp {
       from {
         opacity: 0;
         transform: translateY(40px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     /* --- Media Queries para Responsividade --- */
     @media (max-width: 768px) {
-
       /* Tablets e smartphones maiores em modo paisagem */
       .main-page-header h1 {
         font-size: 2.5em;
       }
-
       #controls-container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Faz os grupos ficarem um abaixo do outro */
+        align-items: center; /* Centraliza os grupos na coluna */
         gap: 20px;
       }
-
       .control-group {
-        flex-direction: column;
+        flex-direction: column; /* Label acima do select */
         align-items: center;
         gap: 8px;
         width: 100%;
         text-align: center;
       }
-
       #controls-container select {
         width: 80%;
         min-width: unset;
       }
-
       .episode-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-
       .episode-image {
         width: 120px;
         height: 120px;
       }
-
       .episode-text-content {
         align-items: center;
       }
-
       .episode-player iframe {
         height: 100px;
       }
-
       .image-modal-content {
         max-width: 90%;
         max-height: 80vh;
       }
     }
-
     @media (max-width: 480px) {
-
       /* Smartphones menores */
       .main-page-header h1 {
         font-size: 2.2em;
       }
-
       #controls-container {
         padding: 15px;
       }
-
       #controls-container select {
         width: 90%;
         padding: 12px 15px;
       }
-
       .control-group {
         gap: 10px;
       }
-
       #controls-container label {
         font-size: 1em;
       }
-
       .container {
         padding: 20px;
         margin: 0 10px 20px 10px;
       }
-
       .episode {
-        padding: 20px;  
+        padding: 20px;
       }
-
       .episode-image {
         width: 100px;
         height: 100px;
       }
-
       .episode-text-content h2 {
         font-size: 1.3em;
       }
-
       .episode-text-content .description {
         font-size: 0.9em;
       }
-
       .episode-player iframe {
         height: 150px;
       }
@@ -456,7 +392,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="intro" id="intro">
     <div style="text-align: center;">
@@ -482,7 +417,7 @@
       <label for="themeFilter">Filtrar por Temática:</label>
       <select id="themeFilter">
         <option value="all">Todas as Temáticas</option>
-      </select>
+        </select>
     </div>
   </div>
 
@@ -498,7 +433,6 @@
     <img class="image-modal-content" id="modalImageContent">
   </div>
 
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       window.addEventListener("load", () => {
@@ -506,7 +440,7 @@
         if (intro) {
           setTimeout(() => {
             intro.classList.add("fade-out");
-          }, 2000);
+          }, 2000); // Tempo da intro
         }
       });
 
@@ -516,7 +450,6 @@
       const imageModal = document.getElementById("imageZoomModal");
       const modalImage = document.getElementById("modalImageContent");
       const closeModalBtn = document.getElementById("closeImageModalBtn");
-
 
       if (!episodesListContainer || !controlsContainer) {
         console.error("Contêineres essenciais para episódios ou controles estão faltando.");
@@ -531,8 +464,9 @@
         return;
       }
 
+      // String HTML dos episódios com TEMÁTICAS ATUALIZADAS
       const episodiosHTMLTemporario = `
-    <div class="episode" data-theme="Inteligência Artificial">
+    <div class="episode" data-theme="Robótica e Automação">
       <div class="episode-header">
         <img src="https://images2.imgbox.com/01/8c/9mWogK4V_o.png" alt="Capa do Episódio 28" class="episode-image">
         <div class="episode-text-content">
@@ -545,8 +479,7 @@
         <iframe src="https://drive.google.com/file/d/11PU7O0pHb-_pmIann7L3ubJqUGhTHkyp/preview" title="Player do Episódio 28" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    
-    <div class="episode" data-theme="Futuro da Indústria">
+    <div class="episode" data-theme="Automação Industrial">
       <div class="episode-header">
         <img src="https://images2.imgbox.com/93/e9/HtwpVma5_o.png" alt="Capa do Episódio 27" class="episode-image">
         <div class="episode-text-content">
@@ -559,8 +492,7 @@
         <iframe src="https://drive.google.com/file/d/1OgvlURm02KWvMDZoHMzAdUTF7VAAx5df/preview" title="Player do Episódio 27" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    
-    <div class="episode" data-theme="Futuro da Indústria">
+    <div class="episode" data-theme="Robótica e Automação">
       <div class="episode-header">
         <img src="https://images2.imgbox.com/75/dc/GHi7B2Am_o.png" alt="Capa do Episódio 26" class="episode-image">
         <div class="episode-text-content">
@@ -573,8 +505,7 @@
         <iframe src="https://drive.google.com/file/d/1ZTIvuabHbhOCVvrCuDvEtRz7F-jA70gK/preview" title="Player do Episódio 26" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    
-    <div class="episode" data-theme="Conectividade">
+    <div class="episode" data-theme="Wearables e IoT">
       <div class="episode-header">
         <img src="https://images2.imgbox.com/34/fb/3ERqTPha_o.png" alt="Capa do Episódio 25" class="episode-image">
         <div class="episode-text-content">
@@ -587,8 +518,7 @@
         <iframe src="https://drive.google.com/file/d/1GgPR0I5FAYIPKXnlDsoe85Cfzrbb_hZQ/preview" title="Player do Episódio 25" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    
-      <div class="episode" data-theme="Computação Avançada">
+    <div class="episode" data-theme="Computação Avançada">
       <div class="episode-header">
         <img src="https://images2.imgbox.com/a6/54/QmqYZdzl_o.png" alt="Capa do Episódio 24" class="episode-image">
         <div class="episode-text-content">
@@ -601,8 +531,7 @@
         <iframe src="https://drive.google.com/file/d/1NaFrlrgYyj18QAy0n2NqcuVbe7HZQWBO/preview" title="Player do Episódio 24" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-      <div class="episode" data-theme="Computação Avançada">
+    <div class="episode" data-theme="Computação Pervasiva (Ubíqua)">
       <div class="episode-header">
         <img src="https://images2.imgbox.com/ac/f9/WWG76DC6_o.png" alt="Capa do Episódio 23" class="episode-image">
         <div class="episode-text-content">
@@ -615,8 +544,7 @@
         <iframe src="https://drive.google.com/file/d/1ZoRQJKMByncuC-u6Hzay5UR5QYdzbKw6/preview" title="Player do Episódio 23" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Conectividade">
+    <div class="episode" data-theme="Redes e Conectividade">
       <div class="episode-header">
         <img src="https://i.ibb.co/1tv0Tzry/Chat-GPT-Image-7-de-mai-de-2025-00-02-39.png" alt="Capa do Episódio 22" class="episode-image">
         <div class="episode-text-content">
@@ -629,8 +557,7 @@
         <iframe src="https://drive.google.com/file/d/1N0OxYISyuTyP7QoOH9JIWoeqCCyNkWmr/preview" title="Player do Episódio 22" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Sustentabilidade">
+    <div class="episode" data-theme="Sustentabilidade e Tecnologia">
       <div class="episode-header">
         <img src="https://i.ibb.co/hxb2d1sY/Chat-GPT-Image-6-de-mai-de-2025-23-58-27.png" alt="Capa do Episódio 21" class="episode-image">
         <div class="episode-text-content">
@@ -643,7 +570,6 @@
         <iframe src="https://drive.google.com/file/d/1QT4VOMbovxGG5lUPQHHKspot4ETvcBOh/preview" title="Player do Episódio 21" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
     <div class="episode" data-theme="Computação Avançada">
       <div class="episode-header">
         <img src="https://i.ibb.co/VWPV49Dx/Chat-GPT-Image-6-de-mai-de-2025-23-53-13.png" alt="Capa do Episódio 20" class="episode-image">
@@ -657,8 +583,7 @@
         <iframe src="https://drive.google.com/file/d/14cqPp202sSy0LhGNSwa6mfgm8qaiJHt8/preview" title="Player do Episódio 20" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Saúde e Tecnologia">
+    <div class="episode" data-theme="Saúde Digital">
       <div class="episode-header">
         <img src="https://i.ibb.co/vCcpbQkQ/Chat-GPT-Image-6-de-mai-de-2025-14-55-27.png" alt="Capa do Episódio 19" class="episode-image">
         <div class="episode-text-content">
@@ -671,8 +596,7 @@
         <iframe src="https://drive.google.com/file/d/1rU1rwzsCTBc4CIQcNT5AugWk5RI9LgWt/preview" title="Player do Episódio 19" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Biotecnologia">
+    <div class="episode" data-theme="Biotecnologia e Genética">
       <div class="episode-header">
         <img src="https://i.ibb.co/XxbPs1wM/Chat-GPT-Image-6-de-mai-de-2025-14-51-14.png" alt="Capa do Episódio 18" class="episode-image">
         <div class="episode-text-content">
@@ -685,8 +609,7 @@
         <iframe src="https://drive.google.com/file/d/1Hw74p7e0Fqhk5srmxxHy38gwGBUJs55f/preview" title="Player do Episódio 18" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Neurociência e Tecnologia">
+    <div class="episode" data-theme="Neurotecnologia">
       <div class="episode-header">
         <img src="https://i.ibb.co/KjCCk5Yb/Chat-GPT-Image-6-de-mai-de-2025-14-46-41.png" alt="Capa do Episódio 17" class="episode-image">
         <div class="episode-text-content">
@@ -699,8 +622,7 @@
         <iframe src="https://drive.google.com/file/d/1wpG8Ccp_WC_7Mha4KdiUt72tPovBO6vh/preview" title="Player do Episódio 17" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Computação Avançada">
+    <div class="episode" data-theme="Computação Quântica">
       <div class="episode-header">
         <img src="https://i.ibb.co/BYC3ydd/Chat-GPT-Image-6-de-mai-de-2025-14-15-02.png" alt="Capa do Episódio 16" class="episode-image">
         <div class="episode-text-content">
@@ -713,7 +635,6 @@
         <iframe src="https://drive.google.com/file/d/1eR54zrMr6MQAae_Iw1ttvv5k15y9WteV/preview" title="Player do Episódio 16" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
     <div class="episode" data-theme="Inteligência Artificial">
       <div class="episode-header">
         <img src="https://i.ibb.co/CD01Q4S/Chat-GPT-Image-6-de-mai-de-2025-12-27-30.png" alt="Capa do Episódio 15" class="episode-image">
@@ -727,8 +648,7 @@
         <iframe src="https://drive.google.com/file/d/1o2wGnBY8aoCxbsqzp7fTjkpUGRt1E2DI/preview" title="Player do Episódio 15" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Comunicação e Mídia">
+    <div class="episode" data-theme="Realidade Estendida (XR)">
       <div class="episode-header">
         <img src="https://i.ibb.co/hRBpwBF4/Chat-GPT-Image-6-de-mai-de-2025-12-21-45.png" alt="Capa do Episódio 14" class="episode-image">
         <div class="episode-text-content">
@@ -741,8 +661,7 @@
         <iframe src="https://drive.google.com/file/d/18_eqw6nMQX9cwBtdCF7xpoV4RR4_K47w/preview" title="Player do Episódio 14" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Inovação Alimentar">
+    <div class="episode" data-theme="Food Tech (Tecnologia Alimentar)">
       <div class="episode-header">
         <img src="https://i.ibb.co/cXk81ksz/Chat-GPT-Image-6-de-mai-de-2025-12-15-22.png" alt="Capa do Episódio 13" class="episode-image">
         <div class="episode-text-content">
@@ -755,8 +674,7 @@
         <iframe src="https://drive.google.com/file/d/1M2bGjvaiz3soI43XQuYk-N4glkz6Lk_7/preview" title="Player do Episódio 13" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Computação Avançada">
+    <div class="episode" data-theme="Computação Quântica">
       <div class="episode-header">
         <img src="https://i.ibb.co/SwHbf5tF/internet-quantica.png" alt="Capa do Episódio 12" class="episode-image">
         <div class="episode-text-content">
@@ -769,8 +687,7 @@
         <iframe src="https://drive.google.com/file/d/1WHtEiLzEkVzYMZpEUT6YrcxMWq8hCHS5/preview" title="Player do Episódio 12" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Energia">
+    <div class="episode" data-theme="Novas Fontes de Energia">
       <div class="episode-header">
         <img src="https://i.ibb.co/Fq8Thp0R/Chat-GPT-Image-1-de-mai-de-2025-14-21-26.png" alt="Capa do Episódio 11" class="episode-image">
         <div class="episode-text-content">
@@ -783,8 +700,7 @@
         <iframe src="https://drive.google.com/file/d/1PYFqjgv7y8TlxTKaAOlUcEm09v-9QALT/preview" title="Player do Episódio 11" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Biotecnologia">
+    <div class="episode" data-theme="Biotecnologia e Genética">
       <div class="episode-header">
         <img src="https://i.ibb.co/Pzw89HND/Chat-GPT-Image-1-de-mai-de-2025-14-16-59.png" alt="Capa do Episódio 10" class="episode-image">
         <div class="episode-text-content">
@@ -797,8 +713,7 @@
         <iframe src="https://drive.google.com/file/d/1Rt_gtytrSePP1Oa1Cp_h4KcnJvcr_VjG/preview" title="Player do Episódio 10" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Realidade Virtual e Metaverso">
+    <div class="episode" data-theme="Metaverso e Web3">
       <div class="episode-header">
         <img src="https://i.ibb.co/dJ7HNSkY/Chat-GPT-Image-1-de-mai-de-2025-14-12-25.png" alt="Capa do Episódio 9" class="episode-image">
         <div class="episode-text-content">
@@ -811,8 +726,7 @@
         <iframe src="https://drive.google.com/file/d/1LrW7m5Tqs-UkTtqiMpFArpMiK3gHrNzX/preview" title="Player do Episódio 9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Web3 e Blockchain">
+    <div class="episode" data-theme="Blockchain e Criptoativos">
       <div class="episode-header">
         <img src="https://i.ibb.co/C5qChmxP/Chat-GPT-Image-1-de-mai-de-2025-14-07-10.png" alt="Capa do Episódio 8" class="episode-image">
         <div class="episode-text-content">
@@ -825,8 +739,7 @@
         <iframe src="https://drive.google.com/file/d/1g2PYXxrZ5yhl01jkFmwaRolvGFQLrR3i/preview" title="Player do Episódio 8" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Web3 e Blockchain">
+    <div class="episode" data-theme="Metaverso e Web3">
       <div class="episode-header">
         <img src="https://i.ibb.co/XfhtRZ9V/Chat-GPT-Image-1-de-mai-de-2025-14-00-31.png" alt="Capa do Episódio 7" class="episode-image">
         <div class="episode-text-content">
@@ -839,7 +752,6 @@
         <iframe src="https://drive.google.com/file/d/1cx_iIqm_xGqx7xa7pMXqiYe_oGOQkJOB/preview" title="Player do Episódio 7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
     <div class="episode" data-theme="Materiais Avançados">
       <div class="episode-header">
         <img src="https://i.ibb.co/wZHs71jk/Chat-GPT-Image-1-de-mai-de-2025-13-48-09.png" alt="Capa do Episódio 6" class="episode-image">
@@ -853,9 +765,7 @@
         <iframe src="https://drive.google.com/file/d/1-alKZpp4Bg7MD0qAIL1LDxKgBlkmG6Ov/preview" title="Player do Episódio 6" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Manufatura Aditiva">
-      <div class="episode-header">
+    <div class="episode" data-theme="Manufatura Aditiva"> <div class="episode-header">
         <img src="https://i.ibb.co/CKSZ7k36/Chat-GPT-Image-1-de-mai-de-2025-06-59-26.png" alt="Capa do Episódio 5" class="episode-image">
         <div class="episode-text-content">
           <div class="episode-number">Episódio #5</div>
@@ -867,8 +777,7 @@
         <iframe src="https://drive.google.com/file/d/1Remlv15L9WtA4t6_G3xZMo9-Ew9NLy-O/preview" title="Player do Episódio 5" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Inteligência Artificial">
+    <div class="episode" data-theme="Inteligência Artificial e IoT">
       <div class="episode-header">
         <img src="https://i.ibb.co/fVSSmPCX/Chat-GPT-Image-1-de-mai-de-2025-06-50-52.png" alt="Capa do Episódio 4" class="episode-image">
         <div class="episode-text-content">
@@ -881,8 +790,7 @@
         <iframe src="https://drive.google.com/file/d/1PXMLUgsNTPDcE-4wt6AayJ-9TlYSpJL5/preview" title="Player do Episódio 4" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Conectividade">
+    <div class="episode" data-theme="Redes e Conectividade">
       <div class="episode-header">
         <img src="https://i.ibb.co/r2JwCfhf/Chat-GPT-Image-1-de-mai-de-2025-06-41-07.png" alt="Capa do Episódio 3" class="episode-image">
         <div class="episode-text-content">
@@ -895,7 +803,6 @@
         <iframe src="https://drive.google.com/file/d/1RWCPlLJoSLnEh4l86cO8gNAUJ_NTJPzs/preview" title="Player do Episódio 3" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
     <div class="episode" data-theme="Inteligência Artificial">
       <div class="episode-header">
         <img src="https://i.ibb.co/G4XGw360/Chat-GPT-Image-30-de-abr-de-2025-18-18-59.png" alt="Capa do Episódio 2" class="episode-image">
@@ -909,8 +816,7 @@
         <iframe src="https://drive.google.com/file/d/19r05Lk8SCfteB94m2F-5GAQkD7XI45Lr/preview" title="Player do Episódio 2" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-
-    <div class="episode" data-theme="Futuro da Indústria">
+    <div class="episode" data-theme="Transformação Digital e Sociedade">
       <div class="episode-header">
         <img src="https://i.ibb.co/qMvdBJz9/Chat-GPT-Image-30-de-abr-de-2025-11-55-58.png" alt="Capa do Episódio 1" class="episode-image">
         <div class="episode-text-content">
@@ -922,35 +828,38 @@
       <div class="episode-player">
         <iframe src="https://drive.google.com/file/d/1FG-bT97pTnqvDOFFstYtZ1YFuNxU_yiN/preview" title="Player do Episódio 1" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
-    </div>
-`;
+    </div>`;
 
+      // Cria um elemento temporário para parsear o HTML dos episódios
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = episodiosHTMLTemporario;
+      // Obtém todos os nós de episódio originais
       const allEpisodeNodesOriginal = Array.from(tempDiv.querySelectorAll(".episode"));
 
+      // HTML para o botão "Ver mais"
       const verMaisDivHTML = `<div style="text-align: center; margin: 30px 0 0 0;"><button id="verMaisBtn" style="background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1em; transition: 0.3s;">Ver mais</button></div>`;
       const tempVerMaisDiv = document.createElement('div');
       tempVerMaisDiv.innerHTML = verMaisDivHTML;
-      const verMaisDivClone = tempVerMaisDiv.firstChild;
+      const verMaisDivClone = tempVerMaisDiv.firstChild; // Pega o elemento div em si
 
-
+      // Mapeia os dados dos episódios para uma estrutura mais fácil de manipular
       const originalEpisodeData = allEpisodeNodesOriginal.map(epNode => {
         const numberText = epNode.querySelector(".episode-number")?.textContent || "";
         const numberMatch = numberText.match(/#(\d+)/);
         return {
-          element: epNode.cloneNode(true),  
+          element: epNode.cloneNode(true), // Clona o elemento para uso futuro
           number: numberMatch ? parseInt(numberMatch[1]) : Infinity,
           title: epNode.querySelector(".episode-text-content h2")?.textContent.toLowerCase() || "",
           theme: epNode.dataset.theme || ""
         };
       });
 
+      // Coleta e popula as temáticas no filtro
       const themes = new Set();
       originalEpisodeData.forEach(epData => {
         if (epData.theme) themes.add(epData.theme);
       });
-      // Limpa as opções existentes antes de adicionar novas para evitar duplicatas se o script for rodado múltiplas vezes em alguns cenários de desenvolvimento
+      // Limpa as opções existentes antes de adicionar novas (exceto a primeira "Todas as Temáticas")
       while (themeFilter.options.length > 1) {
           themeFilter.remove(1);
       }
@@ -961,14 +870,16 @@
         themeFilter.appendChild(option);
       });
 
-      const paginationIncrement = 3;
-      let countVisibleForPagination = paginationIncrement;
+      // Configurações de paginação
+      const paginationIncrement = 3; // Número de episódios a mostrar por vez
+      let countVisibleForPagination = paginationIncrement; // Inicialmente mostra 'paginationIncrement' episódios
 
+      // Adiciona listeners de clique para as imagens dos episódios (para o modal)
       function addImageClickListeners() {
         const episodeImages = episodesListContainer.querySelectorAll(".episode-image");
         episodeImages.forEach(img => {
           img.addEventListener("click", function () {
-            imageModal.style.display = "flex";
+            imageModal.style.display = "flex"; // Usa flex para centralizar
             modalImage.src = this.src;
             modalImage.alt = this.alt;
             document.body.classList.add('modal-open');
@@ -976,56 +887,61 @@
         });
       }
 
+      // Fecha o modal
       closeModalBtn.onclick = function () {
         imageModal.style.display = "none";
         document.body.classList.remove('modal-open');
       }
-      imageModal.onclick = function (event) {  
-        if (event.target === imageModal) {
+      // Fecha o modal clicando fora da imagem
+      imageModal.onclick = function (event) {
+          if (event.target === imageModal) { // Se o clique foi no fundo do modal
           imageModal.style.display = "none";
           document.body.classList.remove('modal-open');
         }
       }
 
-
+      // Função para aplicar a visualização dos episódios na lista
       function applyView(episodesDataToDisplay, enablePagination = false) {
-        episodesListContainer.innerHTML = '';  
+        episodesListContainer.innerHTML = ''; // Limpa a lista atual
         const fragment = document.createDocumentFragment();
 
         episodesDataToDisplay.forEach((epData, index) => {
-          const episodeElement = epData.element.cloneNode(true);  
+          const episodeElement = epData.element.cloneNode(true); // Usa o clone do elemento
+          // Se a paginação está habilitada e o índice é maior ou igual ao número de visíveis, esconde
           if (enablePagination && index >= countVisibleForPagination) {
             episodeElement.style.display = "none";
           } else {
-            episodeElement.style.display = "block";  
+            episodeElement.style.display = "block"; // Garante que esteja visível
           }
           fragment.appendChild(episodeElement);
         });
         episodesListContainer.appendChild(fragment);
 
-        if (verMaisDivClone) {
-          const newVerMaisDiv = verMaisDivClone.cloneNode(true);
+        // Adiciona ou remove o botão "Ver mais"
+        if (verMaisDivClone) { // Verifica se o clone do botão existe
+          const newVerMaisDiv = verMaisDivClone.cloneNode(true); // Clona para obter uma nova instância
           const newVerMaisBtn = newVerMaisDiv.querySelector('#verMaisBtn');
-          episodesListContainer.appendChild(newVerMaisDiv);
+          episodesListContainer.appendChild(newVerMaisDiv); // Adiciona a div que contém o botão
 
-          if (newVerMaisBtn) {
+          if (newVerMaisBtn) { // Verifica se o botão dentro da div foi encontrado
             if (enablePagination && countVisibleForPagination < episodesDataToDisplay.length) {
-              newVerMaisBtn.style.display = "inline-block";
-              newVerMaisBtn.onclick = simplifiedHandleVerMaisClick;  
+              newVerMaisBtn.style.display = "inline-block"; // Mostra o botão
+              newVerMaisBtn.onclick = simplifiedHandleVerMaisClick; // Adiciona evento de clique
             } else {
-              newVerMaisBtn.style.display = "none";
+              newVerMaisBtn.style.display = "none"; // Esconde o botão
             }
           }
         }
-        addImageClickListeners();  
+        addImageClickListeners(); // Re-adiciona listeners para as imagens
       }
 
-
+      // Função simplificada para o clique no botão "Ver mais"
       function simplifiedHandleVerMaisClick() {
         const episodeElementsInDOM = Array.from(episodesListContainer.querySelectorAll('.episode'));
         let newlyShown = 0;
         let firstHiddenIndex = -1;
 
+        // Encontra o primeiro episódio oculto
         for (let i = 0; i < episodeElementsInDOM.length; i++) {
           if (episodeElementsInDOM[i].style.display === 'none') {
             firstHiddenIndex = i;
@@ -1033,64 +949,67 @@
           }
         }
 
+        // Mostra mais 'paginationIncrement' episódios
         if (firstHiddenIndex !== -1) {
           for (let i = firstHiddenIndex; i < episodeElementsInDOM.length && newlyShown < paginationIncrement; i++) {
             episodeElementsInDOM[i].style.display = "block";
             newlyShown++;
           }
         }
+        // Atualiza a contagem de episódios visíveis
         countVisibleForPagination = episodeElementsInDOM.filter(ep => ep.style.display !== 'none').length;
 
-        const verMaisButtonInstance = episodesListContainer.querySelector('#verMaisBtn');  
-        if (verMaisButtonInstance) {
+        // Atualiza a visibilidade do botão "Ver mais"
+        const verMaisButtonInstance = episodesListContainer.querySelector('#verMaisBtn'); // Pega a instância atual do botão no DOM
+          if (verMaisButtonInstance) {
           const stillHidden = episodeElementsInDOM.some(ep => ep.style.display === 'none');
           if (!stillHidden) {
-            verMaisButtonInstance.style.display = 'none';
+            verMaisButtonInstance.style.display = 'none'; // Esconde se não há mais episódios ocultos
           } else {
-            verMaisButtonInstance.style.display = 'inline-block';
+            verMaisButtonInstance.style.display = 'inline-block'; // Mantém visível se ainda há episódios ocultos
           }
         }
       }
 
-
+      // Função principal para atualizar a exibição dos episódios
       function updateDisplay() {
         const sortBy = sortOptions.value;
         const selectedTheme = themeFilter.value;
-        let processedEpisodes = [...originalEpisodeData];
+        let processedEpisodes = [...originalEpisodeData]; // Cria uma cópia para não modificar o array original
 
+        // Filtra por temática
         if (selectedTheme !== "all") {
           processedEpisodes = processedEpisodes.filter(epData => epData.theme === selectedTheme);
         }
 
+        // Ordena os episódios
         if (sortBy === "chronological") {
-          processedEpisodes.sort((a, b) => a.number - b.number);
+          processedEpisodes.sort((a, b) => a.number - b.number); // Mais antigo primeiro
         } else if (sortBy === "alphabetical") {
-          processedEpisodes.sort((a, b) => a.title.localeCompare(b.title));
+          processedEpisodes.sort((a, b) => a.title.localeCompare(b.title)); // Ordem alfabética A-Z
         } else if (sortBy === "default") {
-          // Default order is already "most recent first" due to the array construction
-          // and originalEpisodeData being sorted by b.number - a.number if needed, or by original order if that was intended.
-          // The current originalEpisodeData is built directly from the HTML string's order.
-          // Let's ensure 'default' explicitly sorts by descending episode number.
+          // Padrão é mais recente primeiro (maior número de episódio primeiro)
           processedEpisodes.sort((a, b) => b.number - a.number);
         }
         
+        // Decide se a paginação deve ser habilitada
+        // A paginação só está ativa para a visualização padrão (Mais Recente, Todas as Temáticas)
         if (sortBy === "default" && selectedTheme === "all") {
-          countVisibleForPagination = paginationIncrement;  
-          applyView(processedEpisodes, true);
+          countVisibleForPagination = paginationIncrement; // Reseta a contagem para a paginação
+          applyView(processedEpisodes, true); // Habilita paginação
         } else {
-          countVisibleForPagination = processedEpisodes.length;  
-          applyView(processedEpisodes, false);
+          countVisibleForPagination = processedEpisodes.length; // Mostra todos se não for a visualização padrão
+          applyView(processedEpisodes, false); // Desabilita paginação
         }
       }
       
-      // Initial display call
+      // Chamada inicial para exibir os episódios
       updateDisplay();  
 
-      // Event listeners
+      // Listeners para os controles de ordenação e filtro
       sortOptions.addEventListener("change", updateDisplay);
       themeFilter.addEventListener("change", updateDisplay);
     });
   </script>
 </body>
-
 </html>
